@@ -1,3 +1,6 @@
+import { createGlobalStyle } from "styled-components";
+
+export default createGlobalStyle`
 /*
 =============== 
 Variables
@@ -29,6 +32,9 @@ Variables
   --clr-grey-9: hsl(212, 33%, 89%);
   --clr-grey-10: hsl(210, 36%, 96%);
   --clr-white: #fff;
+  --clr-button: hsl(43, 98%, 53%);
+  --clr-button-hover:hsla(43, 98%, 53%, 0.822);
+  --border-radius: 10px;
 }
 /*
 =============== 
@@ -46,8 +52,7 @@ Global Styles
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  background: var(--clr-grey-10);
-  color: var(--clr-grey-1);
+  background: var(--clr-white);
   line-height: 1.5;
   font-size: 0.875rem;
 }
@@ -103,6 +108,7 @@ p {
   h3,
   h4 {
     line-height: 1;
-    color: hsla(43, 98%, 53%, 0.822);
   }
 }
+
+`;
