@@ -58,19 +58,15 @@ const Navbar = () => {
         </NavLink>
         <NavLink to="employee" className="nav">
           <VscPackage className="icon" />
-          <h3>Product</h3>
+          <h3>Employee</h3>
         </NavLink>
-        <NavLink to="/customer" className="nav">
-          <VscAccount className="icon" />
-          <h3>Customer</h3>
-        </NavLink>
-        <NavLink to="/order" className="nav">
+        <NavLink to="attendance" className="nav">
           <VscOutput className="icon" />
-          <h3>Place Order</h3>
+          <h3>Attendance</h3>
         </NavLink>
-        <NavLink to="/report" className="nav">
-          <VscReport className="icon" />
-          <h3>Report</h3>
+        <NavLink to="user" className="nav">
+          <VscAccount className="icon" />
+          <h3>User</h3>
         </NavLink>
       </Navs>
       <NavbarLogout>

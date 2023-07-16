@@ -90,3 +90,20 @@ export const BackButton = styled.button`
     }
   }
 `;
+
+export const NewEmployeeButton = styled.button`
+  padding: 5px 10px;
+  margin-bottom: 50px;
+  height: 40px;
+  width: 150px;
+  background: var(--clr-button);
+  font-weight: 600;
+  letter-spacing: 1.25px;
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  &:hover {
+    background: var(--clr-button-hover);
+  }
+`;
