@@ -26,9 +26,9 @@ export const TopButtonRow = styled.div`
 
 export const Form = styled.form`
   width: 90%;
-  height: auto;
-  min-height: 100px;
-  max-height: 300px;
+  height: 250px;
+  /* min-height: 100px; */
+  max-height: auto;
   border: none;
   border-radius: var(--border-radius);
   padding: 30px 10px;

@@ -4,14 +4,21 @@ export const TableSection = styled.section`
   margin-top: 50px;
   width: 100%;
   height: 100vh;
-  padding: 10px 50px;
+  padding: 10px 15px;
 
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 
-  @media screen and (min-width: 1250px) {
-    margin-top: 80px;
+  @media screen and (min-width: 600px) {
+    padding: 10px 35px;
+    @media screen and (min-width: 800px) {
+      padding: 10px 40px;
+    }
+    @media screen and (min-width: 1250px) {
+      margin-top: 80px;
+      padding: 10px 40px;
+    }
   }
 
   .employee-table,
@@ -65,6 +72,11 @@ export const TableSection = styled.section`
     z-index: -1;
   }
 
+  .other-column svg {
+    margin-right: 10px;
+    color: var(--clr-primary-1);
+  }
+
   .employee-table tbody tr {
     border: 0.5px solid;
     border-color: rgba(240, 240, 240, 0.467) transparent;
@@ -74,7 +86,7 @@ export const TableSection = styled.section`
   }
 `;
 
-export const NewEmployeeDetails = styled.div`
+export const NewEmployeeDetails = styled.form`
   position: absolute;
   top: 50%;
   left: 50%;

@@ -4,14 +4,21 @@ export const TableSection = styled.section`
   margin-top: 50px;
   width: 100%;
   height: 100vh;
-  padding: 10px 50px;
+  padding: 10px 15px;
 
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 
-  @media screen and (min-width: 1250px) {
-    margin-top: 80px;
+  @media screen and (min-width: 600px) {
+    padding: 10px 35px;
+    @media screen and (min-width: 800px) {
+      padding: 10px 40px;
+    }
+    @media screen and (min-width: 1250px) {
+      margin-top: 80px;
+      padding: 10px 40px;
+    }
   }
 
   .attendance-table,
@@ -78,8 +85,12 @@ export const Greeting = styled.h1`
   font-size: 20px;
   font-weight: 500;
   letter-spacing: 1.25px;
+  line-height: 35px;
+
   @media screen and (min-width: 600px) {
     font-size: 25px;
+    line-height: 40px;
+
     @media screen and (min-width: 800px) {
       font-size: 30px;
       line-height: 45px;
@@ -97,10 +108,13 @@ export const Greeting = styled.h1`
 export const Heading = styled.h4`
   font-size: 14px;
   font-weight: 500;
+  line-height: 35px;
   letter-spacing: 1.25px;
 
   @media screen and (min-width: 600px) {
     font-size: 15px;
+    line-height: 30px;
+
     @media screen and (min-width: 800px) {
       font-size: 16px;
       line-height: 45px;
