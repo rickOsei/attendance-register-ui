@@ -9,6 +9,7 @@ Variables
 
 :root {
   /* primary color*/
+  --clr-primary-0: hsla(213, 97%, 25%, 0.927);
   --clr-primary-1: hsl(213, 97%, 25%);
   --clr-primary-2: hsl(213, 96%, 20%);
   --clr-primary-3: hsl(213, 97%, 15%);
@@ -48,6 +49,7 @@ Global Styles
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,

@@ -1,4 +1,4 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Figure,
   HeadingSection,
@@ -14,17 +14,20 @@ import { LoginButton, PageButton } from "../../styles/Button";
 import FrontImage from "../../assets/landingpage.png";
 
 const LandingPage = () => {
+  const navigate = useNavigate();
   return (
     <HomeContainer>
       <LoginSection>
-        <LoginButton>Login</LoginButton>
+        <LoginButton onClick={() => navigate("/login")}>Login</LoginButton>
       </LoginSection>
       <MainDetails>
         <HeadingSection>
           <Heading>Welcome To The Attendance Register App</Heading>
           <SubHeading>Please Proceed To Log in Your Attendance</SubHeading>
           <ButtonRow>
-            <PageButton>Proceed</PageButton>
+            <PageButton onClick={() => navigate("/attendance")}>
+              Proceed
+            </PageButton>
           </ButtonRow>
         </HeadingSection>
         <Figure>
