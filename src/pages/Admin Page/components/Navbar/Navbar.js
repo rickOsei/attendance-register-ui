@@ -5,7 +5,6 @@ import {
   VscHome,
   VscOutput,
   VscPackage,
-  VscReport,
   VscSignOut,
 } from "react-icons/vsc";
 import {
@@ -95,25 +94,21 @@ const Navbar = () => {
         className={showNavToggle ? "nav-info-mini open-nav" : "nav-info-mini"}
       >
         <NavItems className="nav-items">
-          <NavLink to="/" className="nav">
+          <NavLink to="dashboard" className="nav">
             <VscHome className="icon" />
             <h3>Overview</h3>
           </NavLink>
-          <NavLink to="/product" className="nav">
+          <NavLink to="employee" className="nav">
             <VscPackage className="icon" />
-            <h3>Product</h3>
+            <h3>Employee</h3>
           </NavLink>
-          <NavLink to="/customer" className="nav">
-            <VscAccount className="icon" />
-            <h3>Customer</h3>
-          </NavLink>
-          <NavLink to="/order" className="nav">
+          <NavLink to="attendance" className="nav">
             <VscOutput className="icon" />
-            <h3>Place Order</h3>
+            <h3>Attendance</h3>
           </NavLink>
-          <NavLink to="/report" className="nav">
-            <VscReport className="icon" />
-            <h3>Report</h3>
+          <NavLink to="user" className="nav">
+            <VscAccount className="icon" />
+            <h3>User</h3>
           </NavLink>
         </NavItems>
       </NavInfoMini>

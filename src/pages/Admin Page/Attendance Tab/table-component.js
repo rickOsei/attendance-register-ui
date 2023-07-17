@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -7,9 +8,17 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import useFetchHook from "./useFetchHook";
 import { FaTrash } from "react-icons/fa";
+import DeleteLog from "./deleteLog";
 
 export default function BasicTable() {
   const { logs } = useFetchHook();
+  const [deleteModalOpen, setOpenDeleteModal] = useState(false);
+  const [currentLog, setCurrentLog] = useState({});
+
+  const handleDeleteOpen = (employee) => {
+    setCurrentLog(employee);
+    setOpenDeleteModal(true);
+  };
   return (
     <>
       <TableContainer sx={{ bgcolor: "transparent" }}>
@@ -33,7 +42,7 @@ export default function BasicTable() {
               const { name, employeeNumber, date, time, logType } = log;
               return (
                 <TableRow>
-                  <TableCell align="right" className=" other-column">
+                  <TableCell align="right" className=" column-one">
                     {employeeNumber}
                   </TableCell>
                   <TableCell align="right" className=" other-column">
@@ -49,7 +58,7 @@ export default function BasicTable() {
                     {time}
                   </TableCell>
                   <TableCell align="right" className=" other-column">
-                    <FaTrash />
+                    <FaTrash onClick={() => handleDeleteOpen(log)} />
                   </TableCell>
                 </TableRow>
               );
@@ -57,6 +66,11 @@ export default function BasicTable() {
           </TableBody>
         </Table>
       </TableContainer>
+      <DeleteLog
+        deleteModalOpen={deleteModalOpen}
+        setOpenDeleteModal={setOpenDeleteModal}
+        currentLog={currentLog}
+      />
     </>
   );
 }

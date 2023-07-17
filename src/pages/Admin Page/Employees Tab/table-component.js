@@ -1,6 +1,5 @@
 import * as React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -10,9 +9,11 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import EditEmployeeForm from "./editemployee-form";
 import { fetchEmployees } from "./helperFunctions";
+import DeleteEmployee from "./deleteEmployee";
 
 export default function BasicTable({ employees, setEmployees }) {
   const [modalOpen, setOpenModal] = useState(false);
+  const [deleteModalOpen, setOpenDeleteModal] = useState(false);
   const [currentEmployee, setCurrentEmployee] = useState({});
 
   useEffect(() => {
@@ -22,6 +23,11 @@ export default function BasicTable({ employees, setEmployees }) {
   const handleOpen = (employee) => {
     setCurrentEmployee(employee);
     setOpenModal(true);
+  };
+
+  const handleDeleteOpen = (employee) => {
+    setCurrentEmployee(employee);
+    setOpenDeleteModal(true);
   };
 
   return (
@@ -42,11 +48,11 @@ export default function BasicTable({ employees, setEmployees }) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {employees.map((employee, key) => {
+            {employees?.map((employee, key) => {
               const { department, employeeNumber, name, position } = employee;
               return (
                 <TableRow key={key}>
-                  <TableCell align="right" className=" other-column">
+                  <TableCell align="right" className="column-one">
                     {employeeNumber}
                   </TableCell>
                   <TableCell align="right" className=" other-column">
@@ -60,7 +66,7 @@ export default function BasicTable({ employees, setEmployees }) {
                   </TableCell>
                   <TableCell align="right" className=" other-column">
                     <FaEdit onClick={() => handleOpen(employee)} />
-                    <FaTrash />
+                    <FaTrash onClick={() => handleDeleteOpen(employee)} />
                   </TableCell>
                 </TableRow>
               );
@@ -71,6 +77,12 @@ export default function BasicTable({ employees, setEmployees }) {
       <EditEmployeeForm
         modalOpen={modalOpen}
         setOpenModal={setOpenModal}
+        currentEmployee={currentEmployee}
+        setEmployees={setEmployees}
+      />
+      <DeleteEmployee
+        deleteModalOpen={deleteModalOpen}
+        setOpenDeleteModal={setOpenDeleteModal}
         currentEmployee={currentEmployee}
         setEmployees={setEmployees}
       />

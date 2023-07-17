@@ -4,6 +4,7 @@ import { NewEmployeeDetails } from "./styles";
 import { useForm } from "react-hook-form";
 import customAxios from "../../../utils/customAxios";
 import { fetchEmployees } from "./helperFunctions";
+import { useEffect } from "react";
 
 const EditEmployeeForm = ({
   modalOpen,
@@ -15,13 +16,21 @@ const EditEmployeeForm = ({
   const { name, department, position, _id } = currentEmployee;
 
   // React hook form
-  const { register, handleSubmit, reset } = useForm({
+  const { register, handleSubmit, reset, setValue } = useForm({
     defaultValues: {
       name,
       department,
       position,
     },
   });
+
+  useEffect(() => {
+    if (currentEmployee) {
+      setValue("name", currentEmployee.name);
+      setValue("department", currentEmployee.department);
+      setValue("position", currentEmployee.position);
+    }
+  }, [currentEmployee, setValue]);
 
   const onSubmit = async (data, e) => {
     e.preventDefault();

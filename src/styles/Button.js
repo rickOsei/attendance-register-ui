@@ -107,3 +107,20 @@ export const NewEmployeeButton = styled.button`
     background: var(--clr-button-hover);
   }
 `;
+
+export const DeleteEmployeeButton = styled.button`
+  padding: 5px 10px;
+  height: 40px;
+  width: 100px;
+  margin: 10px;
+  background: var(--clr-button);
+  font-weight: 600;
+  letter-spacing: 1.25px;
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  &:hover {
+    background: var(--clr-button-hover);
+  }
+`;

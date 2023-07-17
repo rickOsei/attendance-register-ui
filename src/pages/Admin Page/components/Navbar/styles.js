@@ -398,6 +398,10 @@ export const NavItems = styled.div`
     font-weight: 600;
   }
 
+  .active {
+    color: #ffad14 !important;
+  }
+
   .icon {
     position: relative;
     top: 5px;
