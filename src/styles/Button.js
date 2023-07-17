@@ -85,7 +85,7 @@ export const BackButton = styled.button`
     width: 20%;
     font-size: 14px;
     @media screen and (min-width: 1440px) {
-      width: 20%;
+      width: 10%;
       font-size: 16px;
     }
   }

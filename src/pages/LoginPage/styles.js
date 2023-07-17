@@ -8,7 +8,7 @@ export const LoginContainer = styled.main`
   align-items: center;
 
   @media screen and (min-width: 700px) {
-    height: 90vh;
+    height: 60vh;
   }
 `;
 
