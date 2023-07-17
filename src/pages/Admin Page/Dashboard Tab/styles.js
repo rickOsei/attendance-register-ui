@@ -192,7 +192,7 @@ export const ButtonRow = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: 10px;
+  margin: 20px 0 10px 0;
 `;
 
 export const SearchInput = styled.input`
