@@ -222,3 +222,18 @@ export const ButtonRow = styled.div`
   justify-content: center;
   margin-bottom: 10px;
 `;
+
+export const SearchInput = styled.input`
+  width: 30%;
+  height: 35px;
+  border-radius: var(--border-radius);
+  padding: 5px 15px;
+`;
+
+export const SearchRow = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 25px;
+  /* padding: 10px 15px; */
+`;

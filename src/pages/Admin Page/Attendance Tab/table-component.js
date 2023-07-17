@@ -9,18 +9,38 @@ import TableRow from "@mui/material/TableRow";
 import useFetchHook from "./useFetchHook";
 import { FaTrash } from "react-icons/fa";
 import DeleteLog from "./deleteLog";
+import SearchComponent from "./search-component";
+import { SearchRow } from "./styles";
 
 export default function BasicTable() {
   const { logs } = useFetchHook();
   const [deleteModalOpen, setOpenDeleteModal] = useState(false);
   const [currentLog, setCurrentLog] = useState({});
+  const [searchTerm, setSearchTerm] = useState("");
 
-  const handleDeleteOpen = (employee) => {
-    setCurrentLog(employee);
+  const handleDeleteOpen = (log) => {
+    setCurrentLog(log);
     setOpenDeleteModal(true);
   };
+
+  const filteredList = logs?.filter((log) => {
+    if (searchTerm) {
+      return (
+        log.name.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()) ||
+        log.logType.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())
+      );
+    }
+    return log;
+  });
   return (
     <>
+      <SearchRow>
+        <SearchComponent
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+        />
+      </SearchRow>
+
       <TableContainer sx={{ bgcolor: "transparent" }}>
         <Table className="attendance-table" aria-label="simple table">
           <TableHead>
@@ -38,7 +58,7 @@ export default function BasicTable() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {logs?.map((log, key) => {
+            {filteredList?.map((log, key) => {
               const { name, employeeNumber, date, time, logType } = log;
               return (
                 <TableRow>

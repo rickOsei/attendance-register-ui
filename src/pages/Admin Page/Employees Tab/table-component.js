@@ -10,15 +10,35 @@ import TableRow from "@mui/material/TableRow";
 import EditEmployeeForm from "./editemployee-form";
 import { fetchEmployees } from "./helperFunctions";
 import DeleteEmployee from "./deleteEmployee";
+import SearchComponent from "./search-component";
+import { SearchRow } from "./styles";
 
 export default function BasicTable({ employees, setEmployees }) {
   const [modalOpen, setOpenModal] = useState(false);
   const [deleteModalOpen, setOpenDeleteModal] = useState(false);
   const [currentEmployee, setCurrentEmployee] = useState({});
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     fetchEmployees(setEmployees);
   }, []);
+
+  const filteredList = employees?.filter((employee) => {
+    if (searchTerm) {
+      return (
+        employee.department
+          .toLocaleLowerCase()
+          .includes(searchTerm.toLocaleLowerCase()) ||
+        employee.position
+          .toLocaleLowerCase()
+          .includes(searchTerm.toLocaleLowerCase()) ||
+        employee.name
+          .toLocaleLowerCase()
+          .includes(searchTerm.toLocaleLowerCase())
+      );
+    }
+    return employee;
+  });
 
   const handleOpen = (employee) => {
     setCurrentEmployee(employee);
@@ -32,6 +52,13 @@ export default function BasicTable({ employees, setEmployees }) {
 
   return (
     <>
+      <SearchRow>
+        <SearchComponent
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+        />
+      </SearchRow>
+
       <TableContainer sx={{ bgcolor: "transparent" }}>
         <Table className="employee-table" aria-label="simple table">
           <TableHead>
@@ -48,7 +75,7 @@ export default function BasicTable({ employees, setEmployees }) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {employees?.map((employee, key) => {
+            {filteredList?.map((employee, key) => {
               const { department, employeeNumber, name, position } = employee;
               return (
                 <TableRow key={key}>
