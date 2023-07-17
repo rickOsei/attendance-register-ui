@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import customAxios from "../../../utils/customAxios";
 
 export const fetchUsers = async (func) => {
@@ -8,6 +9,6 @@ export const fetchUsers = async (func) => {
 
     func(userData);
   } catch (error) {
-    console.log(error);
+    toast.error(error.response.data.msg);
   }
 };

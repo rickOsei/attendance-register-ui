@@ -5,10 +5,10 @@ import {
   Form,
   InputSection,
   Input,
-  FormMessage,
   FormTitle,
   TopButtonRow,
 } from "./styles";
+import { toast } from "react-toastify";
 import { BackButton, FormButton } from "../../styles/Button";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
@@ -18,7 +18,6 @@ import customAxios from "../../utils/customAxios";
 const AttendanceForm = () => {
   const navigate = useNavigate();
   const [employeeID, setEmployeeID] = useState("");
-  const [showMessage, setShowMessage] = useState(false);
   const { currentDate, currentTime } = useDate();
 
   const handleLoggedIn = async (e) => {
@@ -33,13 +32,12 @@ const AttendanceForm = () => {
         "/attendance/logged-in",
         logDetails
       );
-      data && setShowMessage(true);
-      setEmployeeID("");
-      setTimeout(() => {
-        setShowMessage(false);
-      }, 5000);
+      data &&
+        toast.success(
+          "Thank you, Your Attendance has been succefully recorded"
+        );
     } catch (error) {
-      console.log(error.response.data.msg);
+      toast.error(error.response.data.msg);
     }
   };
 
@@ -55,13 +53,12 @@ const AttendanceForm = () => {
         "/attendance/logged-out",
         logDetails
       );
-      data && setShowMessage(true);
-      setEmployeeID("");
-      setTimeout(() => {
-        setShowMessage(false);
-      }, 5000);
+      data &&
+        toast.success(
+          "Thank you, Your Attendance has been succefully recorded"
+        );
     } catch (error) {
-      console.log(error);
+      toast.error(error.response.data.msg);
     }
   };
 
@@ -76,9 +73,7 @@ const AttendanceForm = () => {
       <MainContainer>
         <Form>
           <FormTitle>Employee Attendance Form</FormTitle>
-          <FormMessage style={{ display: showMessage ? "block" : "none" }}>
-            Hello, you have succesfully logged your attendance
-          </FormMessage>
+
           <InputSection>
             <Input
               type="text"

@@ -94,17 +94,17 @@ export const Greeting = styled.h1`
   line-height: 35px;
 
   @media screen and (min-width: 600px) {
-    font-size: 25px;
+    font-size: 22px;
     line-height: 40px;
 
     @media screen and (min-width: 800px) {
-      font-size: 30px;
+      font-size: 26px;
       line-height: 45px;
     }
     @media screen and (min-width: 1024px) {
       font-size: 25px;
       @media screen and (min-width: 1440px) {
-        font-size: 40px;
+        font-size: 30px;
         line-height: 55px;
       }
     }

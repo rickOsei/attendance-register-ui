@@ -68,20 +68,6 @@ export const FormTitle = styled.h4`
   }
 `;
 
-export const FormMessage = styled.p`
-  font-size: 14px;
-  font-weight: 400;
-  color: #727272;
-  text-align: center;
-
-  @media screen and (min-width: 600px) {
-    font-size: 14px;
-    @media screen and (min-width: 1700px) {
-      font-size: 15px;
-    }
-  }
-`;
-
 export const InputSection = styled.div`
   width: 100%;
   display: flex;

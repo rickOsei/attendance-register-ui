@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import {
   VscAccount,
   VscHome,
@@ -24,11 +24,19 @@ import {
   NavInfoMini,
   NavItems,
 } from "./styles";
-// import Avatar from "@mui/material/Avatar";
 
 const Navbar = () => {
   const [showLogout, setShowLogout] = useState(false);
   const [showNavToggle, setShowNavToggle] = useState(true);
+  const navigate = useNavigate();
+
+  const name = localStorage.getItem("name");
+  const email = localStorage.getItem("email");
+
+  const Logout = () => {
+    localStorage.clear();
+    navigate("/");
+  };
 
   return (
     <Wrapper className="navbar">
@@ -37,8 +45,10 @@ const Navbar = () => {
         onClick={() => setShowLogout(showLogout === true ? false : true)}
       >
         <NameEmail>
-          <UserName className="user-name">Stranger Lee</UserName>
-          <UserEmail className="user-email">strangerlee@gmail.com</UserEmail>
+          <UserName className="user-name">{name || "Administrator"}</UserName>
+          <UserEmail className="user-email">
+            {email || "stranger@gmail.com"}
+          </UserEmail>
         </NameEmail>
         <LogoutMini
           className="logout-smaller-screen"
@@ -47,7 +57,7 @@ const Navbar = () => {
           }}
         >
           <VscSignOut className="icon" />
-          <LogoutMiniText>Logout</LogoutMiniText>
+          <LogoutMiniText onClick={Logout}>Logout</LogoutMiniText>
         </LogoutMini>
       </User>
       <Navs className="navs">
@@ -68,7 +78,7 @@ const Navbar = () => {
           <h3>User</h3>
         </NavLink>
       </Navs>
-      <NavbarLogout>
+      <NavbarLogout onClick={Logout}>
         <VscSignOut className="icon" />
         <h3>Logout</h3>
       </NavbarLogout>

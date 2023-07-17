@@ -7,6 +7,7 @@ import Employee from "./pages/Admin Page/Employees Tab";
 import Dashboard from "./pages/Admin Page/Dashboard Tab";
 import User from "./pages/Admin Page/User Tab";
 import AttendanceTable from "./pages/Admin Page/Attendance Tab";
+import ProtectedRoute from "./ProtectedRoute";
 
 const Router = () => {
   return (
@@ -15,11 +16,13 @@ const Router = () => {
         <Route path="/" element={<LandingPage />} />
         <Route path="/attendance" element={<Attendance />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/admin" element={<RootLayout />}>
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="employee" element={<Employee />} />
-          <Route path="user" element={<User />} />
-          <Route path="attendance" element={<AttendanceTable />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/admin" element={<RootLayout />}>
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="employee" element={<Employee />} />
+            <Route path="user" element={<User />} />
+            <Route path="attendance" element={<AttendanceTable />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>

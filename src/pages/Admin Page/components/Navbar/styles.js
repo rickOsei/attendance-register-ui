@@ -49,6 +49,13 @@ export const User = styled.div`
       justify-content: center;
       padding: 25px;
       flex: 2;
+
+      border: 1px solid;
+      border-radius: 0;
+      border-color: var(--primary-0);
+      border-left-color: transparent;
+      border-top-color: transparent;
+      border-right-color: transparent;
     }
   }
 `;
@@ -387,10 +394,11 @@ export const NavInfoMini = styled.div`
 `;
 
 export const NavItems = styled.div`
-  width: 40%;
+  width: 60%;
   margin: 0 auto;
 
   .nav {
+    width: 100%;
     color: #fff;
     display: flex;
     width: 100%;
@@ -403,9 +411,14 @@ export const NavItems = styled.div`
   }
 
   .icon {
+    display: block;
     position: relative;
     top: 5px;
     right: 15px;
     font-size: 18px;
+  }
+
+  @media screen and (min-width: 360px) {
+    width: 40%;
   }
 `;

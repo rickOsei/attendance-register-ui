@@ -21,3 +21,17 @@ export const DummySpace = styled.div`
     height: 100vh;
   }
 `;
+
+export const BackNavigation = styled.div`
+  width: 100%;
+  display: flex;
+  padding: 15px 25px;
+
+  @media screen and (min-width: 1250px) {
+    width: 300px;
+    /* height: 70px; */
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+`;

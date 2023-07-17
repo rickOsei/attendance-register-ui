@@ -81,11 +81,34 @@ export const BackButton = styled.button`
   cursor: pointer;
   font-size: 12px;
 
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 650px) {
     width: 20%;
     font-size: 14px;
     @media screen and (min-width: 1440px) {
-      width: 10%;
+      width: 20%;
+      font-size: 16px;
+    }
+  }
+`;
+
+export const BackHomeButton = styled.button`
+  padding: 5px 10px;
+  height: 40px;
+  width: 40%;
+  background: transparent;
+  font-weight: 600;
+  letter-spacing: 1.25px;
+  color: var(--clr-primary-1);
+  border: 2px solid var(--clr-primary-1);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 12px;
+
+  @media screen and (min-width: 650px) {
+    width: 20%;
+    font-size: 14px;
+    @media screen and (min-width: 1250px) {
+      width: 100%;
       font-size: 16px;
     }
   }

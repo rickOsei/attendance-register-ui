@@ -20,8 +20,6 @@ export default function BasicTable({ users, setUsers }) {
     fetchUsers(setUsers);
   }, []);
 
-  console.log(users);
-
   const handleOpen = (employee) => {
     setCurrentUser(employee);
     setOpenModal(true);

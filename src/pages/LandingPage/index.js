@@ -15,10 +15,17 @@ import FrontImage from "../../assets/landingpage.png";
 
 const LandingPage = () => {
   const navigate = useNavigate();
+  const token = localStorage.getItem("token");
   return (
     <HomeContainer>
       <LoginSection>
-        <LoginButton onClick={() => navigate("/login")}>Login</LoginButton>
+        {!token ? (
+          <LoginButton onClick={() => navigate("/login")}>Login</LoginButton>
+        ) : (
+          <LoginButton onClick={() => navigate("/admin/dashboard")}>
+            Admin Page
+          </LoginButton>
+        )}
       </LoginSection>
       <MainDetails>
         <HeadingSection>

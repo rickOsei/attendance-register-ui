@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import customAxios from "../../../utils/customAxios";
+import { toast } from "react-toastify";
 
 const useFetchHook = () => {
   const [logs, setLogs] = useState([]);
@@ -12,7 +13,7 @@ const useFetchHook = () => {
       } = await customAxios.get("/attendance");
       setLogs(logData);
     } catch (error) {
-      console.log(error);
+      toast.error(error.response.data.msg);
     }
   };
 

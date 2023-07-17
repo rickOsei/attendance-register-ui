@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { BsEyeSlash, BsEye, BsArrowLeftCircle } from "react-icons/bs";
 import {
   LoginContainer,
@@ -17,6 +17,7 @@ import {
   TopButtonRow,
 } from "./styles";
 import { BackButton, FormButton } from "../../styles/Button";
+import customAxios from "../../utils/customAxios";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
@@ -37,24 +38,26 @@ function Login() {
   const onSubmit = async (data, e) => {
     e.preventDefault();
 
-    // try {
-    //   const { data: resData } = await customAxios.post("/auth/login", data);
-    //   localStorage.setItem("token", resData.token);
-    //   navigate(`${location.state.prevURL}`);
+    try {
+      const {
+        data: { user, token },
+      } = await customAxios.post("/login", data);
+      localStorage.setItem("token", token);
+      localStorage.setItem("name", user.name);
+      localStorage.setItem("email", user.email);
 
-    //   if (resData.token) {
-    //     toast.success("Login Successful", {
-    //       position: toast.POSITION.TOP_RIGHT,
-    //     });
-    //   }
-
-    //   window.location.reload(false);
-    // } catch (err) {
-    //   toast.error(err.response?.data.msg, {
-    //     position: toast.POSITION.TOP_RIGHT,
-    //   });
-    // }
-    reset();
+      if (token) {
+        navigate("/");
+        toast.success("Login Successful", {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      }
+      reset();
+    } catch (err) {
+      toast.error(err.response?.data.msg, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
   };
 
   return (
