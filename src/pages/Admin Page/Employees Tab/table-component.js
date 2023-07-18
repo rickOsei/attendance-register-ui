@@ -12,6 +12,7 @@ import { fetchEmployees } from "./helperFunctions";
 import DeleteEmployee from "./deleteEmployee";
 import SearchComponent from "./search-component";
 import { SearchRow } from "./styles";
+import { Spinner } from "../../../styles/GlobalStyles";
 
 export default function BasicTable({ employees, setEmployees }) {
   const [modalOpen, setOpenModal] = useState(false);
@@ -49,6 +50,23 @@ export default function BasicTable({ employees, setEmployees }) {
     setCurrentEmployee(employee);
     setOpenDeleteModal(true);
   };
+
+  if (employees.length === 0) {
+    return (
+      <Spinner>
+        <div class="lds-roller">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </Spinner>
+    );
+  }
 
   return (
     <>

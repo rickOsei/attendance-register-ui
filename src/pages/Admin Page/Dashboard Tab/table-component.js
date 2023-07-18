@@ -11,6 +11,7 @@ import useFetchHook from "./useFetchHook";
 import DeleteLog from "./deleteLog";
 import SearchComponent from "./search-component";
 import { SearchRow } from "./styles";
+import { Spinner } from "../../../styles/GlobalStyles";
 
 export default function BasicTable() {
   const { logs } = useFetchHook();
@@ -32,6 +33,23 @@ export default function BasicTable() {
     }
     return log;
   });
+
+  if (logs.length === 0) {
+    return (
+      <Spinner>
+        <div class="lds-roller">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </Spinner>
+    );
+  }
 
   return (
     <>

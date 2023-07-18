@@ -11,6 +11,7 @@ import { FaTrash } from "react-icons/fa";
 import DeleteLog from "./deleteLog";
 import SearchComponent from "./search-component";
 import { SearchRow } from "./styles";
+import { Spinner } from "../../../styles/GlobalStyles";
 
 export default function BasicTable() {
   const { logs } = useFetchHook();
@@ -32,6 +33,26 @@ export default function BasicTable() {
     }
     return log;
   });
+
+  const sortedDate = filteredList.sort((a, b) => a.date - b.date);
+
+  if (logs.length === 0) {
+    return (
+      <Spinner>
+        <div class="lds-roller">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </Spinner>
+    );
+  }
+
   return (
     <>
       <SearchRow>
@@ -58,7 +79,7 @@ export default function BasicTable() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {filteredList?.map((log, key) => {
+            {sortedDate?.map((log, key) => {
               const { name, employeeNumber, date, time, logType } = log;
               return (
                 <TableRow>

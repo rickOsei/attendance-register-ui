@@ -37,7 +37,8 @@ export const PageButton = styled.button`
 export const FormButton = styled.button`
   padding: 5px 10px;
   height: 40px;
-  width: 40%;
+  width: 50%;
+  margin: 5px;
   background: var(--clr-primary-1);
   font-weight: 500;
   font-size: 13px;

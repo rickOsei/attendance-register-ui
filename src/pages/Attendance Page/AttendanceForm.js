@@ -83,8 +83,8 @@ const AttendanceForm = () => {
             />
           </InputSection>
           <ButtonRow>
-            <FormButton onClick={handleLoggedIn}>Log in</FormButton>
-            <FormButton onClick={handleLoggedOut}>Log out</FormButton>
+            <FormButton onClick={handleLoggedIn}>Clock in</FormButton>
+            <FormButton onClick={handleLoggedOut}>Clock out</FormButton>
           </ButtonRow>
         </Form>
       </MainContainer>

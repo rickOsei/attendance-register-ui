@@ -10,6 +10,7 @@ import TableRow from "@mui/material/TableRow";
 import EditUserForm from "./edituser-form";
 import { fetchUsers } from "./helperFunctions";
 import DeleteUser from "./deleteUser";
+import { Spinner } from "../../../styles/GlobalStyles";
 
 export default function BasicTable({ users, setUsers }) {
   const [modalOpen, setOpenModal] = useState(false);
@@ -29,6 +30,23 @@ export default function BasicTable({ users, setUsers }) {
     setCurrentUser(employee);
     setOpenDeleteModal(true);
   };
+
+  if (users.length === 0) {
+    return (
+      <Spinner>
+        <div class="lds-roller">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </Spinner>
+    );
+  }
 
   return (
     <>
