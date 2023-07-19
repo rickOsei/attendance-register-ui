@@ -72,7 +72,7 @@ function Login() {
         <MainLogin>
           <Form onSubmit={handleSubmit(onSubmit)} noValidate>
             <Heading>Log in to your Admin Account</Heading>
-            <SubHeading>NB. Login Page is for Administrators only</SubHeading>
+            <SubHeading>N.B. Login Page is for Administrators only</SubHeading>
             <Error className="error">{errors.email?.message}</Error>
             <FormInput>
               <Label htmlFor="">Email</Label>
