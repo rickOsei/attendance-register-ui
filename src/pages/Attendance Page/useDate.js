@@ -11,8 +11,11 @@ const useDate = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const displayDate =
-    time.getDate() + "-" + (time.getMonth() + 1) + "-" + time.getFullYear();
+  var year = time.toLocaleString("default", { year: "numeric" });
+  var month = time.toLocaleString("default", { month: "2-digit" });
+  var day = time.toLocaleString("default", { day: "2-digit" });
+
+  const displayDate = year + "-" + month + "-" + day;
 
   const displayTime = time.toLocaleString([], {
     hour: "numeric",
@@ -21,12 +24,7 @@ const useDate = () => {
     hour12: true,
   });
 
-  const currentDate =
-    new Date().getDate() +
-    "-" +
-    (time.getMonth() + 1) +
-    "-" +
-    time.getFullYear();
+  const currentDate = year + "-" + month + "-" + day;
 
   const currentTime = new Date().toLocaleString([], {
     hour: "numeric",

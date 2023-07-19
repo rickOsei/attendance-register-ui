@@ -10,7 +10,7 @@ import TableRow from "@mui/material/TableRow";
 import useFetchHook from "./useFetchHook";
 import DeleteLog from "./deleteLog";
 import SearchComponent from "./search-component";
-import { SearchRow } from "./styles";
+import { EmptyMessage, SearchRow } from "./styles";
 import { Spinner } from "../../../styles/GlobalStyles";
 
 export default function BasicTable() {
@@ -36,18 +36,9 @@ export default function BasicTable() {
 
   if (logs.length === 0) {
     return (
-      <Spinner>
-        <div class="lds-roller">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </Spinner>
+      <EmptyMessage>
+        Sorry,there are no attendance record for today.
+      </EmptyMessage>
     );
   }
 
@@ -79,7 +70,7 @@ export default function BasicTable() {
             {filteredList?.map((log, key) => {
               const { name, employeeNumber, date, time, logType } = log;
               return (
-                <TableRow>
+                <TableRow key={key}>
                   <TableCell align="right" className=" column-one">
                     {employeeNumber}
                   </TableCell>

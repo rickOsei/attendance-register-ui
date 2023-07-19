@@ -20,7 +20,9 @@ const LandingPage = () => {
     <HomeContainer>
       <LoginSection>
         {!token ? (
-          <LoginButton onClick={() => navigate("/login")}>Login</LoginButton>
+          <LoginButton onClick={() => navigate("/login")}>
+            Admin Login
+          </LoginButton>
         ) : (
           <LoginButton onClick={() => navigate("/admin/dashboard")}>
             Admin Page

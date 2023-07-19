@@ -13,7 +13,7 @@ const useFetchHook = () => {
       } = await customAxios.get("/attendance");
       setLogs(logData);
     } catch (error) {
-      toast.error(error.response.data.msg);
+      toast.error(error.response?.data.msg);
     }
   };
 

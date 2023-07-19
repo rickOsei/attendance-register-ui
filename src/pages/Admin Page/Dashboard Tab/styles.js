@@ -208,3 +208,28 @@ export const SearchRow = styled.div`
   justify-content: flex-end;
   margin-bottom: 25px;
 `;
+
+export const EmptyMessage = styled.h1`
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: 1.25px;
+  line-height: 35px;
+  margin-top: 20px;
+
+  @media screen and (min-width: 600px) {
+    font-size: 27px;
+    line-height: 40px;
+
+    @media screen and (min-width: 800px) {
+      font-size: 31px;
+      line-height: 45px;
+    }
+    @media screen and (min-width: 1024px) {
+      font-size: 30px;
+      @media screen and (min-width: 1440px) {
+        font-size: 35px;
+        line-height: 55px;
+      }
+    }
+  }
+`;

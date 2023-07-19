@@ -7,7 +7,7 @@ export const fetchEmployees = async (func) => {
       data: { data: employeeData },
     } = await customAxios.get("/employee");
 
-    func(employeeData);
+    employeeData && func(employeeData);
   } catch (error) {
     toast.error(error.response.data.msg);
   }

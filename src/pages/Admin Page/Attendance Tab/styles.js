@@ -148,15 +148,37 @@ export const ButtonRow = styled.div`
 `;
 
 export const SearchInput = styled.input`
-  width: 30%;
+  width: 70%;
   height: 35px;
   border-radius: var(--border-radius);
   padding: 5px 15px;
+
+  @media screen and (min-width: 600px) {
+    width: 50%;
+    @media screen and (min-width: 800px) {
+      width: 30%;
+    }
+  }
 `;
 
 export const SearchRow = styled.div`
   width: 100%;
   display: flex;
+  justify-content: flex-start;
+  margin-bottom: 15px;
+
+  @media screen and (min-width: 1250px) {
+    justify-content: flex-end;
+  }
+`;
+
+export const DateRow = styled.div`
+  width: 100%;
+  display: flex;
   justify-content: flex-end;
   margin-bottom: 25px;
+
+  @media screen and (min-width: 1250px) {
+    justify-content: flex-start;
+  }
 `;
