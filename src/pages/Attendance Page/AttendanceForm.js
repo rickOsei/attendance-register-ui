@@ -36,6 +36,7 @@ const AttendanceForm = () => {
         toast.success(
           "Thank you, Your Attendance has been succefully recorded"
         );
+      setEmployeeID("");
     } catch (error) {
       toast.error(error.response.data.msg);
     }
@@ -57,6 +58,7 @@ const AttendanceForm = () => {
         toast.success(
           "Thank you, Your Attendance has been succefully recorded"
         );
+      setEmployeeID("");
     } catch (error) {
       toast.error(error.response.data.msg);
     }
